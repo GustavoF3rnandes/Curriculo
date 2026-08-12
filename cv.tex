@@ -9,7 +9,7 @@
 %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 %	copies of the Software, and to permit persons to whom the Software is
 %	furnished to do so, subject to the following conditions:
-%	
+%
 %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,7 +17,7 @@
 %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 %	THE SOFTWARE.
-%	
+%
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
@@ -26,29 +26,22 @@
 %----------------------------------------------------------------------------------------
 
 % article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 %----------------------------------------------------------------------------------------
 %	FONT
 %----------------------------------------------------------------------------------------
 
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
+% codificacao de entrada/saida: necessario para acentuacao em portugues
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES
 %----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip} 	
+\usepackage{parskip}
 
 %other packages for formatting
 \RequirePackage{color}
@@ -63,7 +56,7 @@
 \usepackage{enumitem}
 
 % centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
+\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 %to prevent spillover of tabular into next pages
 \usepackage{supertabular}
@@ -72,30 +65,28 @@
 \setlength{\fullcollw}{0.47\textwidth}
 
 %custom \section
-\usepackage{titlesec}				
+\usepackage{titlesec}
 \usepackage{multicol}
 \usepackage{multirow}
 
-%CV Sections inspired by: 
+%CV Sections inspired by:
 %http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
 
 %Setup hyperref package, and colours for links
 \usepackage[unicode, draft=false]{hyperref}
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
 
 %for social icons
 \usepackage{fontawesome5}
 
 %debug page outer frames
 %\usepackage{showframe}
+
+% mes atual em portugues, sem depender do babel
+\newcommand{\mesPT}{\ifcase\month\or janeiro\or fevereiro\or março\or abril\or maio\or junho\or julho\or agosto\or setembro\or outubro\or novembro\or dezembro\fi}
 
 
 % job listing environments
@@ -118,7 +109,7 @@
     }
     {
     \end{itemize}
-    \end{minipage}    
+    \end{minipage}
     }
 
 
@@ -129,25 +120,20 @@
 \begin{document}
 
 % non-numbered pages
-\pagestyle{empty} 
+\pagestyle{empty}
 
 %----------------------------------------------------------------------------------------
 %	TITLE
 %----------------------------------------------------------------------------------------
 
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
 \begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Your Name} \\[7.5pt]
-\href{https://github.com/username}{\raisebox{-0.05\height}\faGithub\ username} \ $|$ \ 
-\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
-\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
-\href{mailto:email@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ email@mysite.com} \ $|$ \ 
-\href{tel:+000000000000}{\raisebox{-0.05\height}\faMobile \ +00.00.000.000} \\
+\Huge{Gustavo Fernandes Morais} \\[4pt]
+\normalsize{Desenvolvedor Full Stack \ $\cdot$ \ Itabira, MG, Brasil} \\[7.5pt]
+\href{https://github.com/GustavoF3rnandes}{\raisebox{-0.05\height}\faGithub\ GustavoF3rnandes} \ $|$ \
+\href{https://www.linkedin.com/in/gustavo-fernandes-morais-6737a9243/}{\raisebox{-0.05\height}\faLinkedin\ gustavo-fernandes-morais} \ $|$ \
+\href{https://portfoliomorais.vercel.app/}{\raisebox{-0.05\height}\faGlobe \ portfoliomorais.vercel.app} \ $|$ \
+\href{mailto:gustavof3rnandes@outlook.com}{\raisebox{-0.05\height}\faEnvelope \ gustavof3rnandes@outlook.com} \ $|$ \
+\href{tel:+5538998303009}{\raisebox{-0.05\height}\faMobile \ +55 (38) 99830-3009} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
@@ -155,63 +141,101 @@
 %----------------------------------------------------------------------------------------
 
 %Interests/ Keywords/ Summary
-\section{Summary}
-This CV can also be automatically compiled and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+\section{Resumo}
+Engenheiro de Computação formado pela UNIFEI, atuando no ciclo completo de desenvolvimento de software: do front-end em React, Angular e Razor ao back-end em .NET, Python, Node.js e PHP, passando por modelagem de dados relacional e NoSQL, integrações via APIs REST e WebSocket e entrega em produção. Experiência consolidada em modernização de sistemas legados para arquiteturas atuais e na construção de aplicações serverless e de IA generativa na AWS, com 3 certificações AWS e 2 Google Cloud. Busco aprofundar conhecimentos em arquitetura de sistemas distribuídos, DevOps e aplicações de Inteligência Artificial.
 
 %Experience
-\section{Work Experience}
+\section{Experiência Profissional}
 
-\begin{jobshort}{Designation}{Jan 2021 - present}
-long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+\begin{joblong}{Cloud Engineer \& Solutions Architect, :upd8}{mar 2026 -- atual}
+\item Modernização de aplicações legadas .NET Framework para ASP.NET Core 8 em clientes corporativos: análise do código-fonte existente, reescrita de controllers, views Razor e camada de acesso a dados, containerização com Docker e publicação via Azure Pipelines.
+\item Modernização de plataforma contábil em PHP (TYPO3 Flow 2.3 / Doctrine) para Laravel 11 com Eloquent e arquitetura DDD, reorganizando aproximadamente 900 mil linhas de código legado em 20 domínios e 381 models.
+\item Migração de bancos SQL Server para PostgreSQL com AWS DMS e Schema Conversion, incluindo reconstrução manual de foreign keys, triggers e stored procedures não convertidos automaticamente.
+\item Uso de AWS Transform e Kiro para acelerar a refatoração de código legado, com revisão técnica das saídas e correção de regressões de segurança, roteamento e compatibilidade com Linux.
+\item Definição e provisionamento de infraestrutura AWS segundo o Well-Architected Framework, do desenho de arquitetura à entrega em ambiente produtivo.
+\item Condução de reuniões técnicas semanais com clientes, elaboração de documentação técnica e diagramas de arquitetura, além de apoio à frente comercial na construção de propostas.
+\end{joblong}
+
+\begin{joblong}{Desenvolvedor (Estagiário), :upd8}{abr 2025 -- mar 2026}
+\item Desenvolvimento de aplicações full stack sob demanda para clientes e para processos internos: front-ends em React 19 com TypeScript e Vite consumindo APIs REST em Python (FastAPI) e Node.js.
+\item Construção de APIs REST e WebSocket sobre Amazon API Gateway, com funções Lambda em Python, persistência em DynamoDB e processamento assíncrono via SQS.
+\item Concepção e implementação de soluções de IA com Amazon Bedrock e, em fase subsequente, AWS AgentCore integrado ao framework Strands Agents, incluindo pipelines de RAG e agentes com ferramentas customizadas.
+\item Automação de infraestrutura como código com AWS CDK, Terraform e AWS SAM, e pipelines de CI/CD em GitHub Actions.
+\item Participação em reuniões de elicitação de requisitos funcionais e não funcionais, definição de escopo e elaboração de diagramas de arquitetura.
+\end{joblong}
+
+\begin{joblong}{Estagiário de Desenvolvimento Web e TI, ON Energia Solar}{set 2023 -- fev 2024}
+\item Desenvolvimento e manutenção do site institucional utilizando WordPress e PHP.
+\item Coleta e tratamento de dados com Microsoft Power BI para geração de indicadores à equipe.
+\item Criação e gestão de campanhas no Google Ads e apoio na implementação de soluções internas de TI.
+\end{joblong}
+
+\begin{joblong}{Desenvolvedor Front-end, Prefeitura Municipal de Itabira}{jul 2022 -- jun 2023}
+\item Desenvolvimento do Portal de Turismo de Itabira com ASP.NET Razor, criando as interfaces da aplicação com foco em acesso multiplataforma.
+\item Implementação das principais funções de negócio em C\# e das interações com banco de dados SQL Server.
+\item Trabalho em equipe com práticas de web design e gerenciamento de projeto junto ao órgão público.
+\end{joblong}
+
+%Projects
+\section{Projetos}
+
+\begin{jobshort}{AI Solutions Advisor}{\textit{React 19, TypeScript, FastAPI, Bedrock}}
+Aplicação full stack de chat com agente de IA. Front-end em React 19 com TypeScript e Vite, com interface de conversa e painel de debug das chamadas de ferramenta; back-end em Python com FastAPI e validação via Pydantic, expondo os endpoints \texttt{/api/chat} e \texttt{/health}. O agente Strands sobre Amazon Bedrock dispõe de ferramentas customizadas de cálculo, data/hora e consulta a catálogo. Testes com Vitest e Testing Library no front-end e pytest com Hypothesis no back-end.
 \end{jobshort}
 
+\begin{jobshort}{Modernização do sistema PDPoint}{\textit{ASP.NET Core 8, C\#, PostgreSQL, Docker}}
+Migração de aplicação ASP.NET MVC em .NET Framework para ASP.NET Core 8: mais de 20 controllers e 180 views Razor reescritos, troca da camada de dados para Npgsql (PostgreSQL), logging estruturado com Serilog, mapeamento com AutoMapper, geração de PDF com PuppeteerSharp e containerização para deploy via Azure Pipelines.
+\end{jobshort}
 
-\begin{joblong}{Designation}{Mar 2019 - Jan 2021}
-\item long long line of blah blah that will wrap when the table fills the column width
-\item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
-\end{joblong}
-  
-%Projects
-\section{Projects}
+\begin{jobshort}{APIs de Portabilidade e Facade}{\textit{Node.js, TypeScript, Express, Prisma}}
+Modernização de APIs legadas de uma operadora de telecomunicações. A API Facade foi reescrita em Node.js 22 com TypeScript, Express e Prisma, organizada em Clean Architecture (entities, use cases, handlers), com integrações resilientes usando retry e circuit breaker, testes em Vitest, secrets e storage no Google Cloud e deploy automatizado. A API de Portabilidade foi modernizada em .NET com jobs em background, webhooks e execução em Kubernetes.
+\end{jobshort}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
-\end{tabularx}
+\begin{jobshort}{Plataforma multi-tenant de agentes conversacionais}{\textit{AWS CDK, Python, Bedrock}}
+Chatbot integrado ao WhatsApp com isolamento completo por cliente. Webhooks chegam via API Gateway e acionam uma Lambda de ACK que consolida fragmentos de mensagem em buffer no DynamoDB e enfileira no SQS com delay; a Lambda de invocação recupera dinamicamente as instruções do cliente e responde pelo Bedrock com Knowledge Base própria. EventBridge mantém a base vetorial sincronizada e cada transação registra tracing e consumo de tokens para rateio de custo. Infraestrutura inteiramente em AWS CDK (Python), com deploy por GitHub Actions.
+\end{jobshort}
+
+\begin{jobshort}{Validação e extração inteligente de documentos}{\textit{Python, Lambda, Textract, Terraform}}
+Pipeline serverless que valida autenticidade e extrai campos estruturados de 12 grupos de documentos brasileiros, combinando Rekognition, Textract e Bedrock. Arquitetura modular com validators e extractors dedicados por tipo de documento aplicando Template Method, API REST documentada em OpenAPI, Lambda Layers para dependências e infraestrutura provisionada com Terraform.
+\end{jobshort}
+
+\begin{jobshort}{Projetos pessoais}{\href{https://github.com/GustavoF3rnandes}{\textit{github.com/GustavoF3rnandes}}}
+Notes-React (React + TypeScript), Food-ReactNative (React Native + TypeScript), Simulador de Bancada de Incêndios (C\#), tratamento de dados de planilhas em Python e portfólio pessoal publicado na Vercel.
+\end{jobshort}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
-
-2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
-
-2022 & Class 12th Some Board \hfill  (Grades) \\
-
-2021 & Class 10th Some Board \hfill  (Grades) \\
+\section{Formação Acadêmica}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2021 -- 2026 & Bacharelado em Engenharia de Computação na \textbf{Universidade Federal de Itajubá (UNIFEI)} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
-%	PUBLICATIONS
+%	CERTIFICATIONS
 %----------------------------------------------------------------------------------------
-\section{Publications}
-\begin{refsection}[citations.bib]
-\nocite{*}
-\printbibliography[heading=none]
-\end{refsection}
+\section{Certificações}
+\begin{tabularx}{\linewidth}{@{}X X@{}}
+AWS Certified Developer -- Associate & Google Professional Cloud Architect \\
+AWS Certified Advanced Networking -- Specialty & Google Associate Cloud Engineer \\
+AWS Certified Cloud Practitioner & \\
+\end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS
 %----------------------------------------------------------------------------------------
-\section{Skills}
+\section{Competências Técnicas}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
-Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+Front-end & \normalsize{React, React Native, TypeScript, JavaScript, Angular, Razor / ASP.NET MVC, HTML5, CSS3, Bootstrap, Vite} \\
+Back-end & \normalsize{C\# e .NET (Framework, 8 e 10), Python (FastAPI), Node.js (Express), PHP (Laravel, WordPress)} \\
+Dados & \normalsize{SQL Server, PostgreSQL, DynamoDB, Prisma, Eloquent, Entity Framework, AWS DMS} \\
+IA aplicada & \normalsize{Amazon Bedrock, Strands Agents, AWS AgentCore, RAG e Knowledge Bases, Textract, Rekognition} \\
+Cloud \& DevOps & \normalsize{AWS (Lambda, API Gateway, S3, SQS, EventBridge, RDS, EKS), Google Cloud, Docker, Kubernetes, Terraform, AWS CDK, AWS SAM, GitHub Actions, Azure DevOps} \\
+Práticas & \normalsize{APIs REST e WebSocket, OpenAPI, Clean Architecture, DDD, testes automatizados (pytest, Vitest, Testing Library), Git, levantamento de requisitos} \\
+Idiomas & \normalsize{Português (nativo), Inglês (profissional), Espanhol (básico)} \\
 \end{tabularx}
 
 \vfill
-\center{\footnotesize Last updated: \today}
+\center{\footnotesize Última atualização: \mesPT{} de \the\year}
 
 \end{document}
